@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        /* Thêm một số kiểu CSS để cải thiện giao diện */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .user-list {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .user-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Management</h1>
+    <button onclick="addUser('John Doe', 'password123', 'john@example.com', '0123456789', 'active')">Add User John</button>
+    <button onclick="addUser('Jane Smith', 'mypassword', 'jane@example.com', '0987654321', 'inactive')">Add User Jane</button>
+    <button onclick="displayUsers()">Display Users</button>
+    <button onclick="updateUser(1, { email: 'john.doe@example.com', lastLogin: new Date().toISOString() })">Update User 1</button>
+    <button onclick="deleteUser(2)">Delete User 2</button>
+    
+    <div class="user-list" id="userList"></div>
+
+    <script>
+        let users = []; // Mảng lưu trữ danh sách người dùng
+        let nextUserId = 1; // Biến lưu ID tiếp theo cho người dùng mới
+
+        // Hàm thêm người dùng
+        function addUser(userName, password, email, phoneNumber, accountStatus) {
+            const newUser = {
+                userId: nextUserId++, // Tăng ID tự động
+                userName: userName,
+                password: password,
+                email: email,
+                phoneNumber: phoneNumber,
+                accountStatus: accountStatus,
+                registrationDate: new Date().toISOString(), // Ngày đăng ký hiện tại
+                lastLogin: null // Chưa có lần đăng nhập nào
+            };
+            users.push(newUser); // Thêm người dùng vào danh sách
+            console.log(`User added: ${userName}`);
+        }
+
+        // Hàm hiển thị danh sách người dùng
+        function displayUsers() {
+            const userListDiv = document.getElementById('userList');
+            userListDiv.innerHTML = ''; // Xóa danh sách hiện tại
+            users.forEach(user => {
+                const userItem = document.createElement('div');
+                userItem.className = 'user-item';
+                userItem.innerText = `ID: ${user.userId}, Name: ${user.userName}, Email: ${user.email}, Phone: ${user.phoneNumber}, Status: ${user.accountStatus}, Registered: ${user.registrationDate}`;
+                userListDiv.appendChild(userItem);
+            });
+        }
+
+        // Hàm tìm kiếm người dùng theo ID
+        function getUserById(userId) {
+            return users.find(user => user.userId === userId);
+        }
+
+        // Hàm sửa thông tin người dùng
+        function updateUser(userId, updatedData) {
+            const user = getUserById(userId);
+            if (user) {
+                Object.assign(user, updatedData); // Cập nhật thông tin người dùng
+                console.log(`User updated: ${userId}`);
+            } else {
+                console.log("User not found!");
+            }
+        }
+
+        // Hàm xóa người dùng
+        function deleteUser(userId) {
+            users = users.filter(user => user.userId !== userId); // Xóa người dùng theo ID
+            console.log(`User deleted: ${userId}`);
+        }
+    </script>
+</body>
+</html>
