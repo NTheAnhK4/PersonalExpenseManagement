@@ -1,7 +1,7 @@
 let users = []; // Mảng lưu trữ danh sách người dùng
 let nextUserId = 1; // Biến lưu ID tiếp theo cho người dùng mới
 
-// Hàm thêm người dùng
+
 function addUser(userName, password, email, phoneNumber, accountStatus) {
     const newUser = {
         userId: nextUserId++, // Tăng ID tự động
@@ -11,13 +11,13 @@ function addUser(userName, password, email, phoneNumber, accountStatus) {
         phoneNumber: phoneNumber,
         accountStatus: accountStatus,
         registrationDate: new Date().toISOString(), // Ngày đăng ký hiện tại
-        lastLogin: null // Chưa có lần đăng nhập nào
+        lastLogin: null 
     };
     users.push(newUser); // Thêm người dùng vào danh sách
     console.log(`User added: ${userName}`);
 }
 
-// Hàm hiển thị danh sách người dùng
+
 function displayUsers() {
     const userListDiv = document.getElementById('userList');
     userListDiv.innerHTML = ''; // Xóa danh sách hiện tại
@@ -29,12 +29,12 @@ function displayUsers() {
     });
 }
 
-// Hàm tìm kiếm người dùng theo ID
+
 function getUserById(userId) {
     return users.find(user => user.userId === userId);
 }
 
-// Hàm sửa thông tin người dùng
+
 function updateUser(userId, updatedData) {
     const user = getUserById(userId);
     if (user) {
@@ -45,7 +45,6 @@ function updateUser(userId, updatedData) {
     }
 }
 
-// Hàm xóa người dùng
 function deleteUser(userId) {
     users = users.filter(user => user.userId !== userId); // Xóa người dùng theo ID
     console.log(`User deleted: ${userId}`);
