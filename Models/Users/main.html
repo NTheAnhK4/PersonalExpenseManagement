@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
+
         .user-list {
             margin-top: 20px;
             border: 1px solid #ccc;
             padding: 10px;
         }
+
         .user-item {
             margin: 5px 0;
         }
     </style>
-    <script src="userStorage.js"></script>
 </head>
+
 <body>
     <h1>User Management</h1>
-    <button onclick="addUser('John Doe', 'password123', 'john@example.com', '0123456789', 'active')">Add User John</button>
-    <button onclick="addUser('Jane Smith', 'mypassword', 'jane@example.com', '0987654321', 'inactive')">Add User Jane</button>
+    <button onclick="addUser('John Doe', 'password123', 'john@example.com', '0123456789', 'active')">Add User
+        John</button>
+    <button onclick="addUser('Jane Smith', 'mypassword', 'jane@example.com', '0987654321', 'inactive')">Add User
+        Jane</button>
     <button onclick="displayUsers()">Display Users</button>
-    <button onclick="updateUser(1, { email: 'john.doe@example.com', lastLogin: new Date().toISOString() })">Update User 1</button>
+    <button onclick="updateUser(1, { email: 'john.doe@example.com', lastLogin: new Date().toISOString() })">Update User
+        1</button>
     <button onclick="deleteUser(2)">Delete User 2</button>
-    
+
     <div class="user-list" id="userList"></div>
 
-    
+
 </body>
+<script src="userStorage.js"></script>
+
 </html>

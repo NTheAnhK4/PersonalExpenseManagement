@@ -1,4 +1,7 @@
-let users = []; // Mảng lưu trữ danh sách người dùng
+let users = [{
+    username:'john',
+    password:"123"
+}]; // Mảng lưu trữ danh sách người dùng
 let nextUserId = 1; // Biến lưu ID tiếp theo cho người dùng mới
 
 
@@ -49,3 +52,28 @@ function deleteUser(userId) {
     users = users.filter(user => user.userId !== userId); // Xóa người dùng theo ID
     console.log(`User deleted: ${userId}`);
 }
+
+console.log(users);
+
+// Kiểm tra thông tin đăng nhập
+const username = document.getElementById('userName')
+const password = document.getElementById('password')
+const logInBtn =document.getElementById('logInBtn')
+
+if(logInBtn){
+    logInBtn.onclick=()=>{
+        users.forEach((user,index)=>{
+            if(user.password!==password.value||user.username!==username.value){
+                alert('Thông tin đăng nhập không đúng')
+            }
+            else{
+                alert('Đăng nhập thành công')
+                //username: john
+                //password:123
+                window.location.href = '../../Views/HomePage/HomePage.html'
+            }
+        })
+    }
+}
+
+
