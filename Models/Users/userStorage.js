@@ -5,14 +5,14 @@ let users = [{
 let nextUserId = 1; // Biến lưu ID tiếp theo cho người dùng mới
 
 
-function addUser(userName, password, email, phoneNumber, accountStatus) {
+function addUser(userName, password, email, phoneNumber) {
     const newUser = {
         userId: nextUserId++, // Tăng ID tự động
         userName: userName,
         password: password,
         email: email,
         phoneNumber: phoneNumber,
-        accountStatus: accountStatus,
+        accountStatus: "Active",
         registrationDate: new Date().toISOString(), // Ngày đăng ký hiện tại
         lastLogin: null 
     };
