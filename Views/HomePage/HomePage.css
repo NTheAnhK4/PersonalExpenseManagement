@@ -1,3 +1,7 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
 #homepage{
     max-width: 2000px;
      margin: 0px;
@@ -22,7 +26,7 @@
  }
  #main-content{
      display: flex;
-     min-height: 500px;
+     min-height: 600px;
  }  
  #content{
      flex-basis: 90%;
@@ -45,6 +49,7 @@
      position: relative;
  }
  #sidebar ul li{ 
+    cursor: pointer;
      color: #2d3436; 
      width:auto; 
      height: 40px; 
@@ -68,5 +73,10 @@
      display: block;
  }
  
+
+ .content-item {
+    display: none;
+}
+  
  
 
