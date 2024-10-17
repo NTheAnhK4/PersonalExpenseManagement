@@ -1,66 +1,72 @@
 #homepage{
-    max-width: 1500px;
-    margin: 0px;
-}
-#header{
-    background: #2c3e50;
-    color: #ffffff;
-    padding: 20px;
-    
-    display: flex;
-}
-#header1{
-    flex-basis: 50%;
-    text-align: left;
-}
-#header2{
-    flex-basis: 50%;
-    text-align: right;
-}
-#main-content{
-    display: flex;
-    min-height: 500px;
-}  
-#content{
-    flex-basis: 90%;
-}
-#sidebar{
-    background: #85c1e9; 
-    flex-basis: 10%;
-}
-#footer{
-    background: #2d3436;
-    padding: 15px;
-    color: white;
-}
+    max-width: 2000px;
+     margin: 0px;
+     padding: 0px;
+ }
+ #header{
+     background: #2c3e50;
+     color: #ffffff;
+     
+     
+     display: flex;
+ }
+ #header1{
+     padding: 20px;
+     flex-basis: 50%;
+     text-align: left;
+ }
+ #header2{
+     padding: 20px;
+     flex-basis: 50%;
+     text-align: right;
+ }
+ #main-content{
+     display: flex;
+     min-height: 500px;
+ }  
+ #content{
+     flex-basis: 90%;
+ }
+ #sidebar{
+     background: #85c1e9; 
+     flex-basis: 10%;
+ }
+ #footer{
+     background: #2d3436;
+     padding: 15px;
+     color: white;
+ }
+ 
+ #sidebar ul{
+     list-style-type: none;
+     background: #85c1e9; 
+     width: 160px; 
+     padding: 0 1em; 
+     position: relative;
+ }
+ #sidebar ul li{ 
+     color: #2d3436; 
+     width:auto; 
+     height: 40px; 
+     line-height: 40px; 
+     position: relative;}
+ #sidebar ul li a{
+     color: #fff; 
+     text-decoration: none; 
+     display: block;}
+ #sidebar ul li a:hover{
+     background: #a9d6e5; 
+     color: #2d3436;
+ }
+ #sidebar ul li > .submenu{ 
+     display: none; 
+     position: absolute; 
+     left: 160px; 
+     top:0;
+ }
+ #sidebar ul li:hover .submenu{
+     display: block;
+ }
+ 
+ 
 
-#sidebar ul{
-    list-style-type: none;
-    background: #85c1e9; 
-    width: 160px; 
-    padding: 0 1em; 
-    position: relative;
-}
-#sidebar ul li{ 
-    color: #2d3436; 
-    width:auto; 
-    height: 40px; 
-    line-height: 40px; 
-    position: relative;}
-#sidebar ul li a{
-    color: #fff; 
-    text-decoration: none; 
-    display: block;}
-#sidebar ul li a:hover{
-    background: #a9d6e5; 
-    color: #2d3436;
-}
-#sidebar ul li > .submenu{ 
-    display: none; 
-    position: absolute; 
-    left: 160px; 
-    top:0;
-}
-#sidebar ul li:hover .submenu{
-    display: block;
-}
