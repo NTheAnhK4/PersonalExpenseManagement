@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,14 +42,18 @@
                     <label for="name">Tên thu nhập:</label>
                     <input type="text" id="name" name="name" placeholder="Nhập tên loại thu nhập">   
                     <div class="button-container">
-                        <button class="close-btn" type="button" onclick="closeModal()">Đóng</button>
-                    <button class="save-btn" type="button" onclick="saveIncome()">Lưu</button>
+                        <button class="close-btn" type="button" onclick="closePrimaryIncomeTypeModal()">Đóng</button>
+                    <button class="save-btn" type="button" onclick="savePrimaryIncomeType()">Lưu</button>
                     </div>
                     
                 </form>
             </div>
         </div>
-        <script src="../../Models/PrimaryIncomeType/PrimaryIncomeType.js"></script>
+        
+        <script src="../../Models/PrimaryIncome/PrimaryIncomeType.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", updatePrimaryIncomeTypeTable);
+        </script>
     </div>
     
 </body>
