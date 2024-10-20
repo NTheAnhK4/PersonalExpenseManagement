@@ -20,6 +20,42 @@
             <button id="changeToRegisterBtn" onclick="location.href='../Registration/RegistrationForm.html'">Chuyển sang đăng kí</button>
         </div>
     </div>
+    <script>
+        let users = JSON.parse(localStorage.getItem('users')) || [{
+        userId: 1,
+        username:'john',
+        password:"123",
+        email: 'john@gmail.com',
+        phoneNumber: '0912345678',
+        accountStatus: "Active",
+        registrationDate: new Date().toISOString(), 
+        lastLogin: null 
+    
+        }];
+        // Kiểm tra thông tin đăng nhập
+        const username = document.getElementById('userName')
+        const password = document.getElementById('password')
+        const logInBtn =document.getElementById('logInBtn')
+    
+        if(logInBtn){
+            logInBtn.onclick=()=>{
+                users.forEach((user,index)=>{
+                    if(user.password!==password.value||user.username!==username.value){
+                        alert('Thông tin đăng nhập không đúng')
+                    }
+                    else{
+                        alert('Đăng nhập thành công')
+                        //username: john
+                        //password:123
+                        window.location.href = '../../Views/HomePage/HomePage.html'
+                    }
+                })
+            }
+        }
+    
+    
+    </script>
 </body>
-<script src="../../Models/Users/userStorage.js"></script>
+
+
 </html>

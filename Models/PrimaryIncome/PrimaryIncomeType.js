@@ -110,6 +110,7 @@ function editPrimaryIncomeType(index) {
 
         // Cập nhật tên thu nhập
         primaryIncomeTypes[index].name = newName;
+        localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
         updatePrimaryIncomeTypeTable() // Cập nhật lại bảng sau khi sửa
 
         // Đóng modal sau khi cập nhật
@@ -120,6 +121,7 @@ function editPrimaryIncomeType(index) {
         saveButton.onclick = savePrimaryIncomeType; // Khôi phục hành vi thêm mới ban đầu
         title.innerHTML = "Thêm mới";
     };
+    
 }
 
 

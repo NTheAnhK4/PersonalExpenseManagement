@@ -1,8 +1,15 @@
-let users = [{
+let users = JSON.parse(localStorage.getItem('users')) || [{
+    userId: 1,
     username:'john',
-    password:"123"
+    password:"123",
+    email: 'john@gmail.com',
+    phoneNumber: '0912345678',
+    accountStatus: "Active",
+    registrationDate: new Date().toISOString(), // Ngày đăng ký hiện tại
+    lastLogin: null 
+
 }]; // Mảng lưu trữ danh sách người dùng
-let nextUserId = 1; // Biến lưu ID tiếp theo cho người dùng mới
+let nextUserId = 2; // Biến lưu ID tiếp theo cho người dùng mới
 
 
 function addUser(userName, password, email, phoneNumber) {
@@ -17,20 +24,10 @@ function addUser(userName, password, email, phoneNumber) {
         lastLogin: null 
     };
     users.push(newUser); // Thêm người dùng vào danh sách
-    console.log(`User added: ${userName}`);
+    localStorage.setItem('users', JSON.stringify(users));
 }
 
 
-function displayUsers() {
-    const userListDiv = document.getElementById('userList');
-    userListDiv.innerHTML = ''; // Xóa danh sách hiện tại
-    users.forEach(user => {
-        const userItem = document.createElement('div');
-        userItem.className = 'user-item';
-        userItem.innerText = `ID: ${user.userId}, Name: ${user.userName}, Email: ${user.email}, Phone: ${user.phoneNumber}, Status: ${user.accountStatus}, Registered: ${user.registrationDate}`;
-        userListDiv.appendChild(userItem);
-    });
-}
 
 
 function getUserById(userId) {
@@ -38,41 +35,10 @@ function getUserById(userId) {
 }
 
 
-function updateUser(userId, updatedData) {
-    const user = getUserById(userId);
-    if (user) {
-        Object.assign(user, updatedData); // Cập nhật thông tin người dùng
-        console.log(`User updated: ${userId}`);
-    } else {
-        console.log("User not found!");
-    }
-}
-
 function deleteUser(userId) {
     users = users.filter(user => user.userId !== userId); // Xóa người dùng theo ID
-    console.log(`User deleted: ${userId}`);
+    localStorage.setItem('users', JSON.stringify(users));
 }
 
-console.log(users);
 
-// Kiểm tra thông tin đăng nhập
-const username = document.getElementById('userName')
-    const password = document.getElementById('password')
-    const logInBtn =document.getElementById('logInBtn')
-
-    if(logInBtn){
-        logInBtn.onclick=()=>{
-            users.forEach((user,index)=>{
-                if(user.password!==password.value||user.username!==username.value){
-                    alert('Thông tin đăng nhập không đúng')
-                }
-                else{
-                    alert('Đăng nhập thành công')
-                    //username: john
-                    //password:123
-                    window.location.href = '../../Views/HomePage/HomePage.html'
-                }
-            })
-        }
-    }
 

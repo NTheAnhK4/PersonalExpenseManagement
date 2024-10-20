@@ -7,7 +7,7 @@ let primaryIncomeTypes = JSON.parse(localStorage.getItem('primaryIncomeTypes')) 
     {id: 5, name: "Cho thuê"},
 ];
 
-let primaryIncome = [];
+let primaryIncome = JSON.parse(localStorage.getItem('primaryIncome')) ||[];
 let nextPrimaryIncomeId = 1;
 function addPrimaryIncome(newName, newPrimaryIncomeType,newMainIncome,newDescription,newPaymentDate,newPaymentTime) {
     var newIncomeType = {
@@ -20,6 +20,7 @@ function addPrimaryIncome(newName, newPrimaryIncomeType,newMainIncome,newDescrip
         paymentTime: newPaymentTime,
     };
     primaryIncome.push(newIncomeType); // Thêm đối tượng vào mảng
+    localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
 }
 var primaryIncomeModal = document.getElementById("AddPrimaryIncome");     
 var primaryIncomeBtn = document.getElementById("addBtn");
@@ -125,6 +126,7 @@ function updatePrimaryIncomeTable() {
 function deletePrimaryIncome(index) {
     primaryIncome.splice(index, 1); // Xóa phần tử khỏi mảng
     updatePrimaryIncomeTable(); // Cập nhật lại bảng sau khi xóa
+    localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
 }
 function editPrimaryIncome(index) {
     primaryIncomeModal.style.display = "block";
@@ -189,7 +191,7 @@ function editPrimaryIncome(index) {
         primaryIncome[index].description = description;
         primaryIncome[index].paymentDate = date;
         primaryIncome[index].paymentTime = time;
-
+        localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
         updatePrimaryIncomeTable();
 
         // Đóng modal sau khi cập nhật
