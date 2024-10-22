@@ -144,3 +144,61 @@ input, select {
     text-align: right;
     margin-top: 10px;
 }
+
+
+/* Định dạng container của pagination */
+#paginationControls {
+    display: flex;
+    justify-content: center; /* Căn giữa các nút */
+    align-items: center;
+    padding: 10px 0;
+    position: fixed; /* Cố định vị trí */
+    bottom: 0; /* Cố định ở dưới cùng của trang */
+    left: 0;
+    right: 0;
+    background-color: white; /* Nền màu trắng */
+    border-top: 1px solid #ccc; /* Đường viền trên */
+    z-index: 1000; /* Đảm bảo nút nằm trên các phần tử khác */
+}
+
+/* Định dạng chung cho nút */
+#paginationControls button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #007B9E; /* Màu xanh nước biển đậm */
+    background-color: #00BFFF; /* Màu nền xanh nước biển đậm hơn */
+    color: white; /* Màu chữ trắng để tương phản */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút */
+#paginationControls button:hover {
+    background-color: #007B9E; /* Màu xanh nước biển đậm hơn khi hover */
+    color: white; /* Chữ trắng khi hover */
+    border-color: #005F7F; /* Đường viền màu xanh đậm hơn khi hover */
+}
+
+/* Vô hiệu hóa nút */
+#paginationControls button:disabled {
+    background-color: #B2EBF2; /* Màu nền nhạt hơn khi vô hiệu hóa */
+    color: #999; /* Màu chữ xám khi vô hiệu hóa */
+    border-color: #A0BEC8; /* Đường viền màu xám nhạt hơn */
+    cursor: not-allowed; /* Thay đổi con trỏ khi vô hiệu hóa */
+}
+
+/* Nút không bị vô hiệu hóa */
+#paginationControls button:not(:disabled) {
+    background-color: #00BFFF; /* Màu nền xanh nước biển đậm hơn */
+    color: white; /* Màu chữ trắng để tương phản */
+    border-color: #007B9E; /* Đường viền màu xanh nước biển đậm */
+}
+
+/* Hiệu ứng khi hover nút không bị vô hiệu hóa */
+#paginationControls button:not(:disabled):hover {
+    background-color: #007B9E; /* Màu xanh nước biển đậm hơn khi hover */
+    color: white; /* Chữ trắng khi hover */
+    border-color: #005F7F; /* Đường viền màu xanh đậm hơn khi hover */
+}
