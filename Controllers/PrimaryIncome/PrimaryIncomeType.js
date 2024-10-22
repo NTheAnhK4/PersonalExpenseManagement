@@ -104,7 +104,7 @@ function editPrimaryIncomeType(index) {
 document.getElementById('searchInput').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         const searchTerm = this.value;
-        const results = searchByName(searchTerm);  
+        const results = searchPrimaryIncomeTypesByName(searchTerm);  
 
         updatePrimaryIncomeTypeTable(results);
     }

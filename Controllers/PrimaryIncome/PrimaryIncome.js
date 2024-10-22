@@ -23,7 +23,8 @@ function savePrimaryIncome() {
     var name = document.getElementById("name").value;
     var amount = document.getElementById("amount").value;
     var date = document.getElementById("date").value;
-    var incomeType = document.getElementById("incomeType").value;
+    var incomeTypeSelect = document.getElementById("incomeType");
+    var incomeType = incomeTypeSelect.options[incomeTypeSelect.selectedIndex].text;
     var description = document.getElementById("description").value;
     var time = document.getElementById("time").value;
 
@@ -125,7 +126,8 @@ function editPrimaryIncome(index) {
         var name = document.getElementById("name").value;
         var amount = document.getElementById("amount").value;
         var date = document.getElementById("date").value;
-        var incomeType = document.getElementById("incomeType").value;
+        var incomeTypeSelect = document.getElementById("incomeType");
+        var incomeType = incomeTypeSelect.options[incomeTypeSelect.selectedIndex].text;
         var description = document.getElementById("description").value;
         var time = document.getElementById("time").value;
 

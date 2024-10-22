@@ -32,3 +32,11 @@ function searchPrimaryIncomeByName(searchTerm) {
         item.name.toLowerCase().includes(lowerCaseSearchTerm)
     );
 }
+function seachPrimaryIncomeByDescription(searchTerm){
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    // Sử dụng filter để tìm kiếm các phần tử có tên chứa từ khóa tìm kiếm
+    return primaryIncome.filter(item =>
+        item.description.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+}

@@ -18,7 +18,7 @@ function addPrimaryIncomeType(newName) {
     localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
 }
 
-function searchByName(searchTerm) {
+function searchPrimaryIncomeTypesByName(searchTerm) {
     // Chuyển từ khóa tìm kiếm sang chữ thường để so sánh không phân biệt hoa thường
     const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
