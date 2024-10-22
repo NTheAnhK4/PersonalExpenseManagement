@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Expenses</title>
+    <link rel="stylesheet" href="FixedExpense.css">
+</head>
+
+<body>
+    <div id="FixedExpenses">
+        <div id="header">
+            <h1>Danh sách khoản thu nhập cố định</h1>
+        </div>
+        <div id="main-content">
+            <table id="incomeTable">
+                <tr>
+                    <th colspan="8" style="background-color: #f2f2f2;">
+                        <button id="addBtn"
+                            style="background-color: #4682B4; color: white; padding: 12px 24px; border-radius: 8px; font-size: 18px;">
+                            Thêm mới
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="8"> </th>
+                </tr>
+                <tr style="color: #333333;background-color: yellow;">
+                    <th><b>STT</b></th>
+                    <th><b>Tên khoản</b></th>
+                    <th><b>Loại thu nhập cố định</b></th>
+                    <th><b>Số tiền</b></th>
+                    <th><b>Diễn giải</b></th>
+                    <th><b>Ngày</b></th>
+                    <th><b>Thời gian</b></th>
+                    <th><b>Thao tác</b></th>
+                </tr>
+            </table>
+        </div>
+        <div id="AddFixedExpenses" class="modal">
+            <div class="modal-content">
+
+                <span class="close">&times;</span>
+                <h2>Thêm mới</h2>
+                <form id="incomeForm">
+                    <div class="fields">
+                        <div>
+                            <label for="name">Tên khoản:</label>
+                            <input type="text" id="name" name="name" placeholder="Nhập tên khoản">
+
+                            <label for="amount">Số tiền:</label>
+                            <input type="text" id="amount" name="amount" placeholder="Nhập số tiền">
+
+                            <label for="date">Ngày:</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+
+                        <div>
+                            <label for="incomeType">Loại thu nhập cố định:</label>
+                            <select id="incomeType" name="incomeType">
+
+                            </select>
+
+
+                            <label for="description">Diễn giải:</label>
+                            <input type="text" id="description" name="description" placeholder="Nhập diễn giải">
+
+                            <label for="time">Thời gian:</label>
+                            <input type="time" id="time" name="time">
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <button class="close-btn" type="button" onclick="closeFixedExpenses()">Đóng</button>
+                        <button class="save-btn" type="button" onclick="saveFixedExpenses()">Lưu</button>
+                    </div>
+
+
+            </div>
+        </div>
+        <script type="text/javascript" src="../../Models/FixedExpense/FixedExpenses.js"></script>
+    </div>
+</body>
+
+</html>
