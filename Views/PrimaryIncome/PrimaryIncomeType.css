@@ -45,7 +45,6 @@ th, td {
     cursor: pointer;
 }
 
-
 input[type="text"] {
     width: 100%;
     padding: 12px 20px;
@@ -110,4 +109,25 @@ input[type="text"] {
 
 .btn-delete:hover {
     background-color: #e04d3a; /* Màu đậm hơn khi hover */
+}
+
+#pagination {
+    position: fixed;
+    bottom: 20px; /* Khoảng cách từ dưới */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa */
+    margin-top: 20px;
+    text-align: center;
+    z-index: 100; /* Đảm bảo phân trang ở trên cùng */
+    width: calc(100% - 40px); /* Chiếm 100% chiều rộng trừ lề */
+}
+#pagination button {
+    background-color: #4682B4;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+#pagination button:hover {
+    background-color: #005f7f;
 }
