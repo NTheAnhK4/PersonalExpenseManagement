@@ -1,11 +1,10 @@
 let primaryIncomeTypes = JSON.parse(localStorage.getItem('primaryIncomeTypes')) || [
-    {id: 1, name: "Lương"},
-    {id: 2, name: "Thưởng"},
-    {id: 3, name: "Đầu tư"},
-    {id: 4, name: "Kinh doanh"},
-    {id: 5, name: "Cho thuê"},
+    { id: 1, name: "Tiền ăn" },
+    { id: 2, name: "Tiền xăng xe" },
+    { id: 3, name: "Tiền học" },
+    { id: 4, name: "Tiền mua quần áo" },
+    { id: 5, name: "Tiền đi chơi" },
 ];
-
 
 let nextPrimaryIncomeTypesId = 6; // Biến nextId sẽ giữ giá trị tiếp theo của id
 
@@ -18,24 +17,24 @@ function addPrimaryIncomeType(newName) {
     localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
 }
 
-var primaryIncomeTypeModal = document.getElementById("AddPrimaryIncomeType");     
+var primaryIncomeTypeModal = document.getElementById("AddPrimaryIncomeType");
 var primaryIncomeTypeBtn = document.getElementById("addBtn");
 
 
 var primaryIncomeTypeSpan = document.getElementsByClassName("close")[0];
 
 
-primaryIncomeTypeBtn.onclick = function() {
+primaryIncomeTypeBtn.onclick = function () {
     primaryIncomeTypeModal.style.display = "block";
 }
 
 
-primaryIncomeTypeSpan.onclick = function() {
+primaryIncomeTypeSpan.onclick = function () {
     primaryIncomeTypeModal.style.display = "none";
 }
 
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == primaryIncomeTypeModal) {
         primaryIncomeTypeModal.style.display = "none";
     }
@@ -53,7 +52,7 @@ function savePrimaryIncomeType() {
     addPrimaryIncomeType(name);
     updatePrimaryIncomeTypeTable();
     primaryIncomeTypeModal.style.display = "none";
-    
+
 }
 function updatePrimaryIncomeTypeTable() {
     var table = document.getElementById("incomeTable");
@@ -121,7 +120,7 @@ function editPrimaryIncomeType(index) {
         saveButton.onclick = savePrimaryIncomeType; // Khôi phục hành vi thêm mới ban đầu
         title.innerHTML = "Thêm mới";
     };
-    
+
 }
 
 

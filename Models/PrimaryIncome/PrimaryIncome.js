@@ -1,15 +1,15 @@
 
 let primaryIncomeTypes = JSON.parse(localStorage.getItem('primaryIncomeTypes')) || [
-    {id: 1, name: "Lương"},
-    {id: 2, name: "Thưởng"},
-    {id: 3, name: "Đầu tư"},
-    {id: 4, name: "Kinh doanh"},
-    {id: 5, name: "Cho thuê"},
+    { id: 1, name: "Lương" },
+    { id: 2, name: "Thưởng" },
+    { id: 3, name: "Đầu tư" },
+    { id: 4, name: "Kinh doanh" },
+    { id: 5, name: "Cho thuê" },
 ];
 
-let primaryIncome = JSON.parse(localStorage.getItem('primaryIncome')) ||[];
+let primaryIncome = JSON.parse(localStorage.getItem('primaryIncome')) || [];
 let nextPrimaryIncomeId = 1;
-function addPrimaryIncome(newName, newPrimaryIncomeType,newMainIncome,newDescription,newPaymentDate,newPaymentTime) {
+function addPrimaryIncome(newName, newPrimaryIncomeType, newMainIncome, newDescription, newPaymentDate, newPaymentTime) {
     var newIncomeType = {
         id: nextPrimaryIncomeId++,  // Gán Id hiện tại và sau đó tăng nextId
         name: newName, // Gán tên loại thu nhập
@@ -22,23 +22,23 @@ function addPrimaryIncome(newName, newPrimaryIncomeType,newMainIncome,newDescrip
     primaryIncome.push(newIncomeType); // Thêm đối tượng vào mảng
     localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
 }
-var primaryIncomeModal = document.getElementById("AddPrimaryIncome");     
+var primaryIncomeModal = document.getElementById("AddPrimaryIncome");
 var primaryIncomeBtn = document.getElementById("addBtn");
 
 
 var primaryIncomeSpan = document.getElementsByClassName("close")[0];
 
 
-primaryIncomeBtn.onclick = function() {
-    
+primaryIncomeBtn.onclick = function () {
+
     primaryIncomeModal.style.display = "block";
 }
-primaryIncomeSpan.onclick = function() {
+primaryIncomeSpan.onclick = function () {
     primaryIncomeModal.style.display = "none";
 }
 
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == primaryIncomeModal) {
         primaryIncomeModal.style.display = "none";
     }
@@ -62,7 +62,7 @@ function savePrimaryIncome() {
     }
     var numericAmount = Number(amount);
 
-   
+
     if (isNaN(numericAmount) || !Number.isFinite(numericAmount)) {
         alert("số tiền không hợp lệ");
         return;
@@ -83,13 +83,13 @@ function savePrimaryIncome() {
         alert("Vui lòng nhập thời gian");
         return;
     }
-    addPrimaryIncome(name,incomeType,amount,description,date,time);
+    addPrimaryIncome(name, incomeType, amount, description, date, time);
     updatePrimaryIncomeTable();
     primaryIncomeModal.style.display = "none";
-    
+
 }
 function updatePrimaryIncomeTable() {
-   
+
     var table = document.getElementById("incomeTable");
 
     // Xóa các dòng cũ trừ tiêu đề
@@ -116,7 +116,7 @@ function updatePrimaryIncomeTable() {
         cell5.innerHTML = primaryIncome[i].description;
         cell6.innerHTML = primaryIncome[i].paymentDate;
         cell7.innerHTML = primaryIncome[i].paymentTime;
-        
+
         cell8.innerHTML = `
             <button class="btn btn-edit" onclick="editPrimaryIncome(${i})">Sửa</button>
             <button class="btn btn-delete" onclick="deletePrimaryIncome(${i})">Xóa</button>
@@ -164,7 +164,7 @@ function editPrimaryIncome(index) {
         }
         var numericAmount = Number(amount);
 
-    
+
         if (isNaN(numericAmount) || !Number.isFinite(numericAmount)) {
             alert("số tiền không hợp lệ");
             return;
@@ -207,7 +207,7 @@ function closePrimaryIncomeModal() {
     primaryIncomeModal.style.display = "none";
 }
 function populateIncomeTypes() {
-    
+
     const incomeTypeSelect = document.getElementById("incomeType");
 
     primaryIncomeTypes.forEach(type => {
@@ -217,7 +217,7 @@ function populateIncomeTypes() {
         incomeTypeSelect.appendChild(option);
     });
 }
-   
+
 
 document.addEventListener("DOMContentLoaded", populateIncomeTypes);
 
