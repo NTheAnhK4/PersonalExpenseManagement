@@ -29,11 +29,11 @@ function savePrimaryIncomeType() {
         return;
     }
     addPrimaryIncomeType(name);
-    updatePrimaryIncomeTypeTable();
+    updatePrimaryIncomeTypeTable(primaryIncomeTypes);
     primaryIncomeTypeModal.style.display = "none";
     
 }
-function updatePrimaryIncomeTypeTable() {
+function updatePrimaryIncomeTypeTable(pitArray){
     var table = document.getElementById("incomeTable");
 
     // Xóa các dòng cũ trừ tiêu đề
@@ -42,7 +42,7 @@ function updatePrimaryIncomeTypeTable() {
     }
 
     // Thêm từng phần tử của mảng primaryIncomeTypes vào bảng
-    for (var i = 0; i < primaryIncomeTypes.length; i++) {
+    for (var i = 0; i < pitArray.length; i++) {
         var row = table.insertRow();
 
         var cell1 = row.insertCell(0);
@@ -50,7 +50,7 @@ function updatePrimaryIncomeTypeTable() {
         var cell3 = row.insertCell(2);
 
         cell1.innerHTML = i + 1;
-        cell2.innerHTML = primaryIncomeTypes[i].name;
+        cell2.innerHTML = pitArray[i].name;
         cell3.innerHTML = `
             <button class="btn btn-edit" onclick="editPrimaryIncomeType(${i})">Sửa</button>
             <button class="btn btn-delete" onclick="deletePrimaryIncomeType(${i})">Xóa</button>
@@ -60,7 +60,7 @@ function updatePrimaryIncomeTypeTable() {
 // Hàm xóa hàng
 function deletePrimaryIncomeType(index) {
     primaryIncomeTypes.splice(index, 1); // Xóa phần tử khỏi mảng
-    updatePrimaryIncomeTypeTable() // Cập nhật lại bảng sau khi xóa
+    updatePrimaryIncomeTypeTable(primaryIncomeTypes) // Cập nhật lại bảng sau khi xóa
     localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
 
 }
@@ -89,7 +89,7 @@ function editPrimaryIncomeType(index) {
         // Cập nhật tên thu nhập
         primaryIncomeTypes[index].name = newName;
         localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
-        updatePrimaryIncomeTypeTable() // Cập nhật lại bảng sau khi sửa
+        updatePrimaryIncomeTypeTable(primaryIncomeTypes) // Cập nhật lại bảng sau khi sửa
 
         // Đóng modal sau khi cập nhật
         primaryIncomeTypeModal.style.display = "none";
@@ -101,6 +101,15 @@ function editPrimaryIncomeType(index) {
     };
     
 }
+document.getElementById('searchInput').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        const searchTerm = this.value;
+        const results = searchByName(searchTerm);  
+
+        updatePrimaryIncomeTypeTable(results);
+    }
+});
+
 
 
 
@@ -109,4 +118,6 @@ function closePrimaryIncomeTypeModal() {
     primaryIncomeTypeModal.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", updatePrimaryIncomeTypeTable);
+document.addEventListener("DOMContentLoaded", () => {
+    updatePrimaryIncomeTypeTable(primaryIncomeTypes);
+});

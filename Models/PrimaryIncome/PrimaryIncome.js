@@ -22,3 +22,13 @@ function addPrimaryIncome(newName, newPrimaryIncomeType,newMainIncome,newDescrip
     primaryIncome.push(newIncomeType); // Thêm đối tượng vào mảng
     localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
 }
+function searchPrimaryIncomeByName(searchTerm) {
+    
+    // Chuyển từ khóa tìm kiếm sang chữ thường để so sánh không phân biệt hoa thường
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+
+    // Sử dụng filter để tìm kiếm các phần tử có tên chứa từ khóa tìm kiếm
+    return primaryIncome.filter(item =>
+        item.name.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+}

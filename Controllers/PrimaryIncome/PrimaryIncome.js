@@ -60,11 +60,11 @@ function savePrimaryIncome() {
         return;
     }
     addPrimaryIncome(name,incomeType,amount,description,date,time);
-    updatePrimaryIncomeTable();
+    updatePrimaryIncomeTable(primaryIncome);
     primaryIncomeModal.style.display = "none";
     
 }
-function updatePrimaryIncomeTable() {
+function updatePrimaryIncomeTable(piArray) {
    
     var table = document.getElementById("incomeTable");
 
@@ -74,7 +74,7 @@ function updatePrimaryIncomeTable() {
     }
 
     // Thêm từng phần tử của mảng primaryIncomeTypes vào bảng
-    for (var i = 0; i < primaryIncome.length; i++) {
+    for (var i = 0; i < piArray.length; i++) {
         var row = table.insertRow();
 
         var cell1 = row.insertCell(0);
@@ -86,12 +86,12 @@ function updatePrimaryIncomeTable() {
         var cell7 = row.insertCell(6);
         var cell8 = row.insertCell(7);
         cell1.innerHTML = i + 1;
-        cell2.innerHTML = primaryIncome[i].name;
-        cell3.innerHTML = primaryIncome[i].primaryIncomeType;
-        cell4.innerHTML = primaryIncome[i].mainIncome;
-        cell5.innerHTML = primaryIncome[i].description;
-        cell6.innerHTML = primaryIncome[i].paymentDate;
-        cell7.innerHTML = primaryIncome[i].paymentTime;
+        cell2.innerHTML = piArray[i].name;
+        cell3.innerHTML = piArray[i].primaryIncomeType;
+        cell4.innerHTML = piArray[i].mainIncome;
+        cell5.innerHTML = piArray[i].description;
+        cell6.innerHTML = piArray[i].paymentDate;
+        cell7.innerHTML = piArray[i].paymentTime;
         
         cell8.innerHTML = `
             <button class="btn btn-edit" onclick="editPrimaryIncome(${i})">Sửa</button>
@@ -101,7 +101,7 @@ function updatePrimaryIncomeTable() {
 }
 function deletePrimaryIncome(index) {
     primaryIncome.splice(index, 1); // Xóa phần tử khỏi mảng
-    updatePrimaryIncomeTable(); // Cập nhật lại bảng sau khi xóa
+    updatePrimaryIncomeTable(primaryIncome); // Cập nhật lại bảng sau khi xóa
     localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
 }
 function editPrimaryIncome(index) {
@@ -168,7 +168,7 @@ function editPrimaryIncome(index) {
         primaryIncome[index].paymentDate = date;
         primaryIncome[index].paymentTime = time;
         localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
-        updatePrimaryIncomeTable();
+        updatePrimaryIncomeTable(primaryIncome);
 
         // Đóng modal sau khi cập nhật
         primaryIncomeModal.style.display = "none";
@@ -194,8 +194,18 @@ function populateIncomeTypes() {
     });
 }
    
-
+document.getElementById('searchInput').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        const searchTerm = this.value;
+        const results = searchPrimaryIncomeByName(searchTerm);  
+        
+        updatePrimaryIncomeTable(results);
+    }
+});
 document.addEventListener("DOMContentLoaded", populateIncomeTypes);
 
 document.addEventListener("DOMContentLoaded", updatePrimaryIncomeTable);
+document.addEventListener("DOMContentLoaded", () => {
+    updatePrimaryIncomeTable(primaryIncome);
+});
 

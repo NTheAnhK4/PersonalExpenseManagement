@@ -18,6 +18,14 @@ function addPrimaryIncomeType(newName) {
     localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
 }
 
+function searchByName(searchTerm) {
+    // Chuyển từ khóa tìm kiếm sang chữ thường để so sánh không phân biệt hoa thường
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
 
+    // Sử dụng filter để tìm kiếm các phần tử có tên chứa từ khóa tìm kiếm
+    return primaryIncomeTypes.filter(item =>
+        item.name.toLowerCase().includes(lowerCaseSearchTerm)
+    );
+}
 
 
