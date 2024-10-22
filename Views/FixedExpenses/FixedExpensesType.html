@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Expenses Type</title>
+    <link rel="stylesheet" href="FixedExpensesType.css">
+
+</head>
+
+<body>
+    <div id="FixedExpensesType">
+        <div id="header">
+            <h1>Danh sách thu nhập cố định</h1>
+        </div>
+        <div id="main_content">
+            <table id="incomeTable">
+                <tr>
+                    <th colspan="3" style="background-color: #f2f2f2;">
+                        <button id="addBtn"
+                            style="background-color: #4682B4; color: white; padding: 12px 24px; border-radius: 8px; font-size: 18px;">
+                            Thêm mới
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3"> </th>
+                </tr>
+                <tr style="background-color: yellow;">
+                    <th><b>STT</b></th>
+                    <th><b>Tên</b></th>
+                    <th><b>Thao tác</b></th>
+                </tr>
+
+            </table>
+
+        </div>
+        <div id="AddFixedExpensesType" class="modal">
+            <div class="modal-content">
+
+                <span class="close">&times;</span>
+                <h2>Thêm mới</h2>
+                <form id="incomeForm">
+                    <label for="name">Tên thu nhập:</label>
+                    <input type="text" id="name" name="name" placeholder="Nhập tên loại thu nhập">
+                    <div class="button-container">
+                        <button class="close-btn" type="button" onclick="closeFixedExpensesTypeModal()">Đóng</button>
+                        <button class="save-btn" type="button" onclick="saveFixedExpensesType()">Lưu</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <script src="../../Models/FixedExpense/FixedExpensesType.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", updateFixedExpensesTypeTable);
+        </script>
+    </div>
+
+</body>
+
+</html>

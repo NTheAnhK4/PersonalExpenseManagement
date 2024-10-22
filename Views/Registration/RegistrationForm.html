@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="RegistrationForm.css">
     <title>Đăng Ký</title>
 </head>
+
 <body>
     <div class="container">
         <div class="form-container">
@@ -16,24 +18,30 @@
             <label for="password">Mật khẩu</label>
             <input type="password" id="password" placeholder="Nhập mật khẩu">
 
+            <label for="confirmPassword">Nhập lại mật khẩu</label>
+            <input type="confirmPassword" id="confirmPassword" placeholder="Nhập lại mật khẩu">
+
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="Nhập email">
 
             <label for="phoneNumber">Số điện thoại</label>
             <input type="text" id="phoneNumber" placeholder="Nhập số điện thoại">
-            
+
             <div class="info-text">
                 <p>Mật khẩu phải có ít nhất 6-12 kí tự.</p>
                 <p>Mật khẩu phải có kí tự viết hoa, thường, số và kí tự đặc biệt.</p>
             </div>
-            
+
             <div class="button-container">
-                <button id="registerBtn">Đăng kí</button>
-                <button id="changeToLoginBtn" onclick="location.href='../Login/LoginForm.html'">Chuyển sang đăng nhập</button>
+                <button type="submit" id="registerBtn">Đăng kí</button>
+                <button id="changeToLoginBtn" onclick="location.href='../Login/LoginForm.html'">Chuyển sang đăng
+                    nhập</button>
             </div>
 
-           
+
         </div>
     </div>
+    <script src="./signup.js"></script>
 </body>
+
 </html>
