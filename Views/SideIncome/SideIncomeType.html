@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primary Income Type</title>
-    <link rel="stylesheet" href="PrimaryIncomeType.css"> 
+    <title>Side Income Type</title>
+    <link rel="stylesheet" href="SideIncomeType.css"> 
     
 </head>
 <body>
-    <div id="PrimaryIncomeType">
-        <div id="header">
-            <h1>Danh sách thu nhập chính</h1>
+    <div id="SideIncomeType">
+        <div id="header"> 
+            <h1>Danh sách thu nhập phụ</h1>
         </div>
         <div id="main_content">
             <table id = "incomeTable">
@@ -35,24 +35,24 @@
             </table>
             
         </div>
-        <div id="AddPrimaryIncomeType" class="modal">
+        <div id="SideIncomeModal" class="modal">
             <div class="modal-content">
                 
                 <span class="close">&times;</span>
-                <h2 >Thêm mới</h2>
+                <h2>Thêm mới</h2>
                 <form id="incomeForm">
                     <label for="name">Tên thu nhập:</label>
-                    <input type="text" id="name" name="name" placeholder="Nhập tên loại thu nhập">   
+                    <input class="nameSideIncome" type="text" id="name" name="name" placeholder="Nhập tên loại thu nhập">   
                     <div class="button-container">
-                        <button class="close-btn" type="button" onclick="closePrimaryIncomeTypeModal()">Đóng</button>
-                    <button class="save-btn" type="button" onclick="savePrimaryIncomeType()">Lưu</button>
+                        <button class="close-btn close" type="button">Đóng</button>
+                    <button class="save-btn" type="button">Lưu</button>
                     </div>
                     
                 </form>
             </div>
         </div>
         
-        <script src="../../Controllers/PrimaryIncome/PrimaryIncomeType.js"></script>
+        <script src="../../Controllers/SideIncome/SideIncomeType.js"></script>
         
     </div>
     
