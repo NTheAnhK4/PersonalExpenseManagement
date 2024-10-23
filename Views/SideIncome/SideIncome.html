@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary Income</title>
+    <link rel="stylesheet" href="SideIncome.css"> 
+</head>
+<body>
+    <div id="PrimaryIncome">
+        <div id="header">
+            <h1>Danh sách khoản thu nhập phụ</h1>
+        </div>
+        <div id="main-content">
+            <table id="incomeTable">
+                <tr>
+                    <th colspan="8" style="background-color: #f2f2f2;">
+                        <button id="addBtn" style="background-color: #4682B4; color: white; padding: 12px 24px; border-radius: 8px; font-size: 18px;">
+                            Thêm mới
+                        </button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="8" style="text-align: right;">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm..." style="padding: 8px; width: 30%;">
+                    </th>
+                </tr>
+                <tr>
+                    <th><b>STT</b></th>
+                    <th><b>Tên khoản</b></th>
+                    <th><b>Loại thu nhập chính</b></th>
+                    <th><b>Số tiền</b></th>
+                    <th><b>Diễn giải</b></th>
+                    <th><b>Ngày</b></th>
+                    <th><b>Thời gian</b></th>
+                    <th><b>Thao tác</b></th>
+                </tr>
+            </table>
+        </div>
+        <div id="SideIncomeModal" class="modal">
+            <div class="modal-content">
+                
+                <span class="close">&times;</span>
+                <h2 id="titleModal">Thêm mới</h2>
+                <form id="incomeForm">
+                    <div class="fields">
+                        <div>
+                            <label for="name">Tên khoản:</label>
+                            <input type="text" id="name" name="name" placeholder="Nhập tên khoản">
+                
+                            <label for="amount">Số tiền:</label>
+                            <input type="text" id="amount" name="amount" placeholder="Nhập số tiền">
+                
+                            <label for="date">Ngày:</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                
+                        <div>
+                            <label for="incomeType">Loại thu nhập phụ:</label>
+                            <select id="incomeType" name="incomeType">
+                                <!-- Các tùy chọn sẽ được thêm vào đây -->
+                            </select>
+
+                
+                            <label for="description">Diễn giải:</label>
+                            <input type="text" id="description" name="description" placeholder="Nhập diễn giải">
+                
+                            <label for="time">Thời gian:</label>
+                            <input type="time" id="time" name="time">
+                        </div>
+                    </div>
+                
+                    <div class="button-container">
+                        <button class="close close-btn" type="button">Đóng</button>
+                        <button class="save-btn" type="button">Lưu</button>
+                    </div>
+                
+                
+            </div>
+        </div>
+        <script src="../../Controllers//SideIncome/SideIncome.js"></script>
+    </div>
+</body>
+</html>
