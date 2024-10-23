@@ -50,8 +50,8 @@ function renderTable(pitArray) {
     const table = document.getElementById("incomeTable");
 
     // Xóa các dòng cũ trừ tiêu đề
-    while (table.rows.length > 1) {
-        table.deleteRow(1);
+    while (table.rows.length > 2) {
+        table.deleteRow(2);
     }
 
     const start = currentPage * rowsPerPage;

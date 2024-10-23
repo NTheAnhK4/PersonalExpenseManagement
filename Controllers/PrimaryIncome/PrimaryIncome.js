@@ -90,8 +90,8 @@ function updatePrimaryIncomeTable(piArray) {
 }
 
 function clearTableRows(tableBody) {
-    while (tableBody.rows.length > 1) {
-        tableBody.deleteRow(1);
+    while (tableBody.rows.length > 2) {
+        tableBody.deleteRow(2);
     }
 }
 
