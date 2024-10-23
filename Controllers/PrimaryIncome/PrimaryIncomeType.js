@@ -23,32 +23,50 @@ function savePrimaryIncomeType() {
 
     addPrimaryIncomeType(name);
     updatePrimaryIncomeTypeTable(primaryIncomeTypes);
-    primaryIncomeTypeModal.style.display = "none";
-    
+    closePrimaryIncomeTypeModal();
 }
-function updatePrimaryIncomeTypeTable(pitArray){
-    var table = document.getElementById("incomeTable");
+function updatePrimaryIncomeTypeTable(pitArray) {
+    const totalRows = pitArray.length;
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+    // Tạo các phần tử cho các trang
+    const paginationContainer = document.getElementById("pagination");
+    paginationContainer.innerHTML = ''; // Xóa nội dung cũ
+
+    for (let i = 0; i < totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.innerText = i + 1;
+        pageButton.onclick = () => {
+            currentPage = i;
+            renderTable(pitArray);
+        };
+        paginationContainer.appendChild(pageButton);
+    }
+
+    renderTable(pitArray);
+}
+
+function renderTable(pitArray) {
+    const table = document.getElementById("incomeTable");
 
     // Xóa các dòng cũ trừ tiêu đề
     while (table.rows.length > 1) {
         table.deleteRow(1);
     }
 
-    // Thêm từng phần tử của mảng primaryIncomeTypes vào bảng
-    for (var i = 0; i < pitArray.length; i++) {
-        var row = table.insertRow();
+    const start = currentPage * rowsPerPage;
+    const end = Math.min(start + rowsPerPage, pitArray.length);
 
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-
-        cell1.innerHTML = i + 1;
-        cell2.innerHTML = pitArray[i].name;
-        cell3.innerHTML = `
+    // Thêm các dòng cho trang hiện tại
+    for (let i = start; i < end; i++) {
+        const row = table.insertRow();
+        row.insertCell(0).innerHTML = i + 1; // Số thứ tự
+        row.insertCell(1).innerHTML = pitArray[i].name;
+        row.insertCell(2).innerHTML = `
             <button class="btn btn-edit" onclick="editPrimaryIncomeType(${i})">Sửa</button>
             <button class="btn btn-delete" onclick="deletePrimaryIncomeType(${i})">Xóa</button>
         `;
-    });
+    }
 }
 
 function deletePrimaryIncomeType(index) {
@@ -100,6 +118,5 @@ function closePrimaryIncomeTypeModal() {
     primaryIncomeTypeModal.style.display = "none";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    updatePrimaryIncomeTypeTable(primaryIncomeTypes);
-});
+
+
