@@ -10,8 +10,18 @@ let users = JSON.parse(localStorage.getItem('users')) || [{
 
 }]; // Mảng lưu trữ danh sách người dùng
 let nextUserId = 2; // Biến lưu ID tiếp theo cho người dùng mới
-
-
+let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+function SetUserLogin(user){
+    currentUser = user;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+}
+function SetUserLogout(){
+    currentUser = null;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+}
+function IsLogin(){
+    return currentUser != null;
+}
 function addUser(userName, password, email, phoneNumber) {
     const newUser = {
         userId: nextUserId++, // Tăng ID tự động
@@ -27,9 +37,6 @@ function addUser(userName, password, email, phoneNumber) {
     localStorage.setItem('users', JSON.stringify(users));
 }
 
-
-
-
 function getUserById(userId) {
     return users.find(user => user.userId === userId);
 }
@@ -39,6 +46,7 @@ function deleteUser(userId) {
     users = users.filter(user => user.userId !== userId); // Xóa người dùng theo ID
     localStorage.setItem('users', JSON.stringify(users));
 }
+
 
 
 
