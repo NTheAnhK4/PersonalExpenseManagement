@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+#header {
+    background: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#content {
+    padding: 20px;
+}
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+/* Style for the button */
+button {
+    background-color: #3498db; /* Màu nền xanh dương */
+    color: white;              /* Màu chữ trắng */
+    border: none;              /* Không có viền */
+    border-radius: 5px;       /* Bo góc */
+    padding: 10px 20px;       /* Khoảng cách bên trong */
+    cursor: pointer;           /* Con trỏ khi di chuột vào */
+    font-size: 16px;          /* Kích thước chữ */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển màu */
+}
+
+/* Hiệu ứng khi di chuột vào nút */
+button:hover {
+    background-color: #2980b9; /* Màu nền khi hover */
+}

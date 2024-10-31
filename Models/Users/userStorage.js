@@ -36,6 +36,13 @@ function addUser(userName, password, email, phoneNumber) {
     users.push(newUser); // Thêm người dùng vào danh sách
     localStorage.setItem('users', JSON.stringify(users));
 }
+function updateUser(id, userName, password, email, phoneNumber){
+    users[id].username = userName;
+    users[id].password = password;
+    users[id].email = email;
+    users[id].phoneNumber = phoneNumber;
+    localStorage.setItem('users', JSON.stringify(users));
+}
 
 function getUserById(userId) {
     return users.find(user => user.userId === userId);

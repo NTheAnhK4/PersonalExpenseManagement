@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài Đặt Thông Tin Người Dùng</title>
+    <link rel="stylesheet" href="UserStatus.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Cài Đặt Thông Tin Người Dùng</h1>
+    </div>
+    <div id="content">
+        <h2>Thay đổi thông tin</h2>
+        <form id="userInfoForm">
+            <input type="text" id="name" placeholder="Tên" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="Số điện thoại" required>
+            <input type="password" id="password" placeholder="Mật khẩu mới" required>
+            <button type="submit">Lưu thay đổi</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="../../Models/Users/userStorage.js"></script>
+    <script src="../../Controllers/UserStatus/UserStatus.js"></script>
+</body>
+</html>

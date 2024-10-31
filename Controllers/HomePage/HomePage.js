@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 function showLoggedInState(userName) {  
     logInLink.textContent = userName;
-    logInLink.href = '#'; 
+    logInLink.href = '../../Views/UserStatus/UserStatus.html'; 
     registerLink.textContent = 'Đăng xuất';
     registerLink.href = '../../Views/HomePage/HomePage.html';
+    
     registerLink.onclick = () => {
         localStorage.removeItem('loggedInUser');
         SetUserLogout();
