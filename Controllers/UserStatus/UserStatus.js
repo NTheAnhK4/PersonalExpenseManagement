@@ -11,4 +11,7 @@ document.getElementById('userInfoForm').onsubmit = (event) => {
     SetUserLogout();
     window.location.href = '../../Views/HomePage/HomePage.html';
 };
+document.getElementById("exitButton").addEventListener("click", function() {
+    window.location.href = '../../Views/HomePage/HomePage.html';
+});
 
