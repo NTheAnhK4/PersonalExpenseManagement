@@ -4,19 +4,20 @@ const username = document.getElementById('userName')
         const logInBtn =document.getElementById('logInBtn')
     
         if(logInBtn){
+            
             logInBtn.onclick=()=>{
+                let isValidUser = false;
                 users.forEach((user,index)=>{
-                    if(user.password!==password.value||user.username!==username.value){
-                        alert('Thông tin đăng nhập không đúng')
-                    }
-                    else{
-                        alert('Đăng nhập thành công')
+                    if (user.password === password.value && user.username === username.value) {
+                        isValidUser = true;
+                        alert('Đăng nhập thành công');
                         SetUserLogin(user);
-                        //username: john
-                        //password:123
-                        window.location.href = '../../Views/HomePage/HomePage.html'
+                        window.location.href = '../../Views/HomePage/HomePage.html';
                     }
                 })
+                if (!isValidUser) {
+                    alert('Thông tin đăng nhập không đúng');
+                }
             }
         }
        
