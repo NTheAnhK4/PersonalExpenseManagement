@@ -30,13 +30,7 @@ SideIncomeModal.onclick = (e) => {
 }
 
 // Lấy danh sách thu nhập từ localStorage
-let listSideIncome = JSON.parse(localStorage.getItem('listSideIncome')) ||[
-    { id: 1, name: "Kinh doanh online" },
-    { id: 2, name: "Gia sư" },
-    { id: 3, name: "Làm freelancer" },
-    { id: 4, name: "Đầu tư tài chính" },
-    { id: 5, name: "Cho thuê nhà" },
-];
+let listSideIncome = JSON.parse(localStorage.getItem('listSideIncome')) || [];
 
 // Lưu hoặc cập nhật thông tin
 saveBtn.onclick = () => {
