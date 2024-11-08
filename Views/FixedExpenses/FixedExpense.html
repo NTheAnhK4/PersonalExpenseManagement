@@ -11,9 +11,9 @@
 <body>
     <div id="FixedExpenses">
         <div id="header">
-            <h1>Danh sách khoản thu nhập cố định</h1>
+            <h1>Danh sách khoản chi tiêu cố định</h1>
         </div>
-        <div id="main-content">
+        <div id="main-content" style="margin-bottom: 80px;">
             <table id="incomeTable">
                 <tr>
                     <th colspan="8" style="background-color: #f2f2f2;">
@@ -29,7 +29,7 @@
                 <tr style="color: #333333;background-color: yellow;">
                     <th><b>STT</b></th>
                     <th><b>Tên khoản</b></th>
-                    <th><b>Loại thu nhập cố định</b></th>
+                    <th><b>Loại chi tiêu cố định</b></th>
                     <th><b>Số tiền</b></th>
                     <th><b>Diễn giải</b></th>
                     <th><b>Ngày</b></th>
@@ -37,6 +37,16 @@
                     <th><b>Thao tác</b></th>
                 </tr>
             </table>
+        </div>
+        <div id="calculate-bar">
+            <label for="time-period">Chọn khoảng thời gian:</label>
+            <select id="time-period">
+                <option value="week">Tuần</option>
+                <option value="month">Tháng</option>
+                <option value="year">Năm</option>
+            </select>
+            <button onclick="calculateTotal()">Tính Tổng</button>
+            <p>Tổng chi tiêu: <span id="total-amount">0</span></p>
         </div>
         <div id="AddFixedExpenses" class="modal">
             <div class="modal-content">
@@ -57,7 +67,7 @@
                         </div>
 
                         <div>
-                            <label for="incomeType">Loại thu nhập cố định:</label>
+                            <label for="incomeType">Loại chi tiêu cố định:</label>
                             <select id="incomeType" name="incomeType">
 
                             </select>
