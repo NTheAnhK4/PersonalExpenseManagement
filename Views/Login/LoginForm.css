@@ -1,62 +1,89 @@
+/* Đặt nền cho toàn bộ trang */
 body {
-    background-color: deepskyblue;
+    background-color: #0099cc; /* Màu nền xanh dương */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Chiều cao toàn bộ cửa sổ */
+    height: 100vh;
     margin: 0;
+    font-family: 'Arial', sans-serif;
 }
+
+/* Cấu trúc chính của form */
 .main-container {
-    background-color: white;
-    border: 2px solid black;
+    background-color: #ffffff; /* Nền trắng cho form */
+    border: 2px solid #0077b6; /* Viền màu xanh đậm */
     width: 80vw; /* Chiều rộng 80% của viewport */
-    max-width: 600px; /* Chiều rộng tối đa */
-    padding: 20px;
+    max-width: 600px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Tiêu đề */
 h1 {
     text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 3vw; /* Kích thước chữ tương đối */
-    font-weight: bold;
-    margin: 20px 0;
+    font-size: 2.5em; /* Cỡ chữ phù hợp */
+    color: #0077b6; /* Màu xanh đậm */
+    margin-bottom: 20px;
 }
+
+/* Cấu trúc cho nhãn */
 label {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw; /* Kích thước chữ tương đối */
-    margin-top: 10px;
+    font-size: 1.2em;
+    color: #0077b6; /* Màu xanh đậm */
+    margin-bottom: 5px;
     display: block;
 }
+
+/* Ô nhập liệu */
 input {
     width: 100%;
-    height: 5vh;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw; 
-    margin: 5px 0 20px 0;
-    padding: 5px;
+    height: 40px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #0077b6; /* Viền xanh đậm */
+    border-radius: 5px;
     box-sizing: border-box;
 }
+
+/* Cấu trúc cho các nút */
 button {
-    flex: 1; 
-    height: 6vh;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vw; 
-    background-color: skyblue;
+    width: 100%;
+    height: 45px;
+    font-size: 1.2em;
+    background-color: #0077b6; /* Màu nền xanh đậm */
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
-    margin-left: 5px; 
-    margin-right: 5px; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    transition: background-color 0.3s ease;
 }
+
+/* Hiệu ứng hover cho các nút */
 button:hover {
-    background-color: deepskyblue;
+    background-color: #0099cc; /* Màu nền sáng hơn khi hover */
 }
+
+/* Nút "Quên mật khẩu?" có kiểu dáng riêng */
+.forgot-button button {
+    background-color: transparent;
+    color: #0077b6; /* Màu xanh đậm */
+    border: none;
+    text-decoration: underline;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.forgot-button button:hover {
+    color: #0099cc; /* Đổi màu khi hover */
+}
+
+/* Cấu trúc các nút */
 .button-container {
     display: flex;
-    justify-content: center; 
+    flex-direction: column;
+    gap: 10px;
 }
