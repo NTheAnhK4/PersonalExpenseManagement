@@ -1,9 +1,9 @@
-let fixedExpensesTypes = JSON.parse(localStorage.getItem('fixedExpensesTypes')) || [
-    { id: 1, name: "Lương" },
-    { id: 2, name: "Thưởng" },
-    { id: 3, name: "Đầu tư" },
-    { id: 4, name: "Kinh doanh" },
-    { id: 5, name: "Cho thuê" },
+let fixedExpensesTypes = JSON.parse(localStorage.getItem('fixedExpenses')) || [
+    { id: 1, name: "Tiền ăn" },
+    { id: 2, name: "Tiền xăng xe" },
+    { id: 3, name: "Tiền học" },
+    { id: 4, name: "Tiền mua quần áo" },
+    { id: 5, name: "Tiền đi chơi" },
 ];
 
 
