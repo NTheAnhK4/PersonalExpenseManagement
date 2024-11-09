@@ -39,7 +39,7 @@ function savePrimaryIncome() {
     addPrimaryIncome(name, incomeType, amount, description, date, time);
     updatePrimaryIncomeTable(primaryIncome);
     hideModal();
-    alert("Thêm khoản thu nhập mới thành công");
+    alert("Thêm khoản thu nhập chính thành công");
 }
 
 // Kiểm tra tính hợp lệ của thu nhập

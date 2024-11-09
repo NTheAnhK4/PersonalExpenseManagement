@@ -22,16 +22,22 @@ th, td {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 20px auto; /* Điều chỉnh khoảng cách từ phía trên */
     padding: 20px;
     border: 1px solid #888;
     width: 40%; /* Độ rộng modal */
     border-radius: 8px;
+    text-align: left; /* Chữ không cần căn giữa */
 }
+
+
 .close {
     color: #aaa;
     float: right;
@@ -200,3 +206,5 @@ input, select {
     color: white; /* Chữ trắng khi hover */
     border-color: #005F7F; /* Đường viền màu xanh đậm hơn khi hover */
 }
+
+
