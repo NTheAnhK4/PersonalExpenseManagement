@@ -148,6 +148,7 @@ function editPrimaryIncome(index) {
             hideModal();
             resetSaveButton(saveButton, title);
         }
+        alert("Sửa khoản thu nhập chính thành công");
     };
 }
 
