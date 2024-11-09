@@ -1,13 +1,13 @@
 // validation form register and register user local storage
 function register(event) {
     event.preventDefault();
-    const userName = document.getElementById("userName").value;
+    const username = document.getElementById("userName").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
     const phoneNumber = document.getElementById("phoneNumber").value;
     const registerData = {
-        userName: userName,
+        username: username,
         email: email,
         password: password,
         confirmPassword: confirmPassword,

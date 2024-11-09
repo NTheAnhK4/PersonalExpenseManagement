@@ -54,12 +54,10 @@ registerBtn.addEventListener('click', () => {
         email,
         phoneNumber
     };
-
-    // Lấy danh sách người dùng từ localStorage hoặc khởi tạo danh sách mới
     let users = JSON.parse(localStorage.getItem('users')) || [];
     users.push(newUser); // Thêm người dùng vào danh sách
     localStorage.setItem('users', JSON.stringify(users)); // Lưu danh sách người dùng vào localStorage
-
+    
     // Thông báo đăng ký thành công
     alert('Đăng ký thành công!');
 });

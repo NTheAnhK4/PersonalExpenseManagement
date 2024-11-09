@@ -2,7 +2,7 @@
 let users = JSON.parse(localStorage.getItem('users')) || [{
     userId: 1,
     username:'john',
-    password:"123",
+    password:"Abc123@",
     email: 'john@gmail.com',
     phoneNumber: '0912345678',
     accountStatus: "Active",

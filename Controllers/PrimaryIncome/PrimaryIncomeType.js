@@ -71,10 +71,31 @@ function renderTable(pitArray) {
 }
 
 function deletePrimaryIncomeType(index) {
-    primaryIncomeTypes.splice(index, 1);
-    updatePrimaryIncomeTypeTable(primaryIncomeTypes);
-    localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
+    const modal = document.getElementById('confirm-delete-modal');
+    const confirmBtn = document.getElementById('confirm-delete');
+    const cancelBtn = document.getElementById('cancel-delete');
+
+    modal.style.display = "block";
+
+    confirmBtn.onclick = function() {
+        primaryIncomeTypes.splice(index, 1);
+        updatePrimaryIncomeTypeTable(primaryIncomeTypes);
+        localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
+        modal.style.display = "none";
+    };
+
+    cancelBtn.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 }
+
+
 
 function editPrimaryIncomeType(index) {
     primaryIncomeTypeModal.style.display = "block";
@@ -100,7 +121,7 @@ function editPrimaryIncomeType(index) {
         saveButton.innerHTML = "Lưu";
         saveButton.onclick = savePrimaryIncomeType;
         document.querySelector("#AddPrimaryIncomeType h2").innerText = "Thêm mới";
-        alert("Sửa loại thu nhập mới thành công");
+        alert("Sửa loại thu nhập thành công");
     };
 }
 
