@@ -100,6 +100,7 @@ function editPrimaryIncomeType(index) {
         saveButton.innerHTML = "Lưu";
         saveButton.onclick = savePrimaryIncomeType;
         document.querySelector("#AddPrimaryIncomeType h2").innerText = "Thêm mới";
+        alert("Sửa loại thu nhập mới thành công");
     };
 }
 
