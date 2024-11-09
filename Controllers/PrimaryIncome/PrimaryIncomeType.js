@@ -24,6 +24,7 @@ function savePrimaryIncomeType() {
     addPrimaryIncomeType(name);
     updatePrimaryIncomeTypeTable(primaryIncomeTypes);
     closePrimaryIncomeTypeModal();
+    alert("Thêm loại thu nhập mới thành công");
 }
 function updatePrimaryIncomeTypeTable(pitArray) {
     const totalRows = pitArray.length;
