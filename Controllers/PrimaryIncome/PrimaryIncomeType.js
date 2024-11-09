@@ -82,7 +82,7 @@ function deletePrimaryIncomeType(index) {
         updatePrimaryIncomeTypeTable(primaryIncomeTypes);
         localStorage.setItem('primaryIncomeTypes', JSON.stringify(primaryIncomeTypes));
         modal.style.display = "none";
-        alert("Xóa loại thu nhập thành công");
+        alert("Xóa loại thu nhập chính thành công");
     };
 
     cancelBtn.onclick = function() {

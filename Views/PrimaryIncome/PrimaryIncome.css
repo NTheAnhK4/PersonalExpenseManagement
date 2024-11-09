@@ -208,3 +208,9 @@ input, select {
 }
 
 
+#AddPrimaryIncome{
+    display: none;
+}
+#confirm-delete-modal{
+    display: none;
+}

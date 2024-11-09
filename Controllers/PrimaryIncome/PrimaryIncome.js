@@ -124,13 +124,32 @@ function updatePaginationControls(totalRows) {
     document.getElementById("prevPage").disabled = currentPage === 1;
     document.getElementById("nextPage").disabled = currentPage * rowsPerPage >= totalRows;
 }
-
-// Xóa thu nhập chính
 function deletePrimaryIncome(index) {
-    primaryIncome.splice(index, 1);
-    updatePrimaryIncomeTable(primaryIncome);
-    saveToLocalStorage('primaryIncome', primaryIncome);
+    const modal = document.getElementById('confirm-delete-modal');
+    const confirmBtn = document.getElementById('confirm-delete');
+    const cancelBtn = document.getElementById('cancel-delete');
+
+    modal.style.display = "block";
+
+    confirmBtn.onclick = function() {
+        primaryIncome.splice(index, 1);
+        updatePrimaryIncomeTable(primaryIncome);
+        localStorage.setItem('primaryIncome', JSON.stringify(primaryIncome));
+        modal.style.display = "none";
+        alert("Xóa khoản thu nhập chính thành công");
+    };
+
+    cancelBtn.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 }
+
 
 // Sửa thu nhập chính
 function editPrimaryIncome(index) {
